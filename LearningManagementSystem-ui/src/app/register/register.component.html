@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <div class="card" style="padding: 20px;">
+
+    <h3>User Register Form</h3>
+<div [hidden]="submitted">
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+     
+      <input type="text" class="form-control mb-3" id="userName"  placeholder="Enter your username i.e abc@123" required [(ngModel)]="user.userName" name="userName">
+    </div>
+
+    <div class="form-group">
+     
+      <input type="text" class="form-control mb-3" id="userFirstName"  placeholder="Enter your FirstName" required [(ngModel)]="user.userFirstName" name="userFirstName">
+    </div>
+
+    <div class="form-group">
+     
+      <input type="text" class="form-control mb-3"  placeholder="Enter your LastName" id="userLastName" required [(ngModel)]="user.userLastName" name="userLastName">
+    </div>
+
+    <div class="form-group">
+        
+        <input type="password"   placeholder="Enter your Password" class="form-control mb-3" id="userPassword" required [(ngModel)]="user.userPassword" name="userPassword">
+      </div>
+
+    <button type="submit"  class="btn btn-outline-primary form-control rounded-0">Register</button>&nbsp;&nbsp;&nbsp;
+    
+  </form>
+ 
+</div>
+
+<div [hidden]="!submitted">
+  <h4>Your registration successful..</h4>
+  
+</div>
+<div>
+    <a class="text-success" routerLink="/login">Click here for login if already register</a>
+</div>
+
+
+  </div>
+
+</div>

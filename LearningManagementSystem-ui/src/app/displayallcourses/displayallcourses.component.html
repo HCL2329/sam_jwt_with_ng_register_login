@@ -1,0 +1,81 @@
+<div class="panel panel-primary">
+    <div>
+      <h2><i>Learning Courses List</i ></h2>
+    </div>
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    SearchByTechnology&Duration
+  </button>
+    <!-- modal open -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Courses Information based on your search</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                      <label for="technology-name" class="col-form-label">Technology Name</label>
+                      <input type="text" class="form-control" id="technology-name" placeholder="Enter the Technology Name" [(ngModel)]="bytechnology" name="technology">
+                    </div>
+                    <div class="mb-3">
+                        <label for="duration" class="col-form-label">Duration</label>
+                        <input type="number" class="form-control" id="duration" placeholder="Enter the duration" [(ngModel)]="courseDuration" name="courseDuration">
+                      </div>
+                  </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" (click)="getByTechnologyAndDuration()">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- modal close -->
+    <br>
+    <br>
+   
+    <form class="navbar-form navbar-left" > 
+        <div class="input-group">
+          <input type="text" class="form-control me-2" placeholder="Search By Technology" [(ngModel)]="technology" name="technology">
+          <div class="input-group-btn">
+            <button class="btn btn-success" type="submit" (click)="getByTechnology()"> Search
+             
+            </button>&nbsp;&nbsp;&nbsp;&nbsp;
+           
+                <button type="button" (click)="getAllCourseData()" class="btn btn-info">All Courses</button>
+          </div>
+        </div>
+      </form>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>CourseName</th>
+            <th>CourseDuration</th>
+            <th>CourseDescription</th>
+            <th>Technology</th>
+            <th>LaunchUrl</th>
+           
+           
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of courses">
+            <td>{{course.courseName}}</td>
+            <td>{{course.courseDuration}}</td>
+            <td>{{course.courseDescription}}</td>
+            <td>{{course.technology}}</td>
+            <td>{{course.launchUrl}}</td>
+            <!-- <td><button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
+                <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
